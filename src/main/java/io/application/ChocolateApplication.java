@@ -6,6 +6,7 @@ import java.util.Map;
 import io.gui.console.Console;
 import io.gui.console.DisplayConsole;
 import io.gui.console.ReadConsole;
+import io.util.EasterEggFileException;
 
 public class ChocolateApplication {
 	
@@ -16,6 +17,7 @@ public class ChocolateApplication {
 		private static final String EMOJI_SMILING_FACE = "\u263A";
 		private static final String EMOJI_GRINNING_FACE = "\uD83E\uDD2A";
 		private static final String EMOJI_FACE_WITH_ROLLING_EYES ="\uD83D\uDE44";
+		private static final String EMOJI_PRESENT = "\uD83C\uDF81";
 		//TODO refacto: use an HashMap or something else ?
 		
 		Console console;
@@ -53,7 +55,11 @@ public class ChocolateApplication {
 				console.message(EMOJI_CHOCOLATE_BAR + " Healthy chocolate !" + EMOJI_OK_HAND+EMOJI_THUMBS_UP);
 				break;
 			case 2:
-				console.message(display.showContentFile("src/main/resources/easter.txt"));
+				try {
+					console.message(display.showContentFile("src/main/resources/easter.txt"));
+				}catch (EasterEggFileException e){
+					console.message(EMOJI_PRESENT);
+				}
 				console.message(EMOJI_CHOCOLATE_BAR + " My favourite chocolate !" + EMOJI_SMILING_FACE);
 				break;
 			case 3:

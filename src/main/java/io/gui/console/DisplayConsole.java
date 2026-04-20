@@ -4,6 +4,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Map;
 
+import io.util.EasterEggFileException;
+
 public class DisplayConsole extends Console {
 
 	private static final String EXIT_KEY = "0";
@@ -48,7 +50,7 @@ public class DisplayConsole extends Console {
 		return Integer.parseInt(EXIT_KEY);
 	}
 	
-	public String showContentFile(String nameFile) {
+	public String showContentFile(String nameFile) throws EasterEggFileException {
 		StringBuilder content = new StringBuilder();
 		try (FileReader reader = new FileReader(nameFile)){
 			int character;
@@ -56,7 +58,7 @@ public class DisplayConsole extends Console {
 					content.append((char) character);
 				}
 		} catch (IOException e) {
-			e.printStackTrace();
+			throw new EasterEggFileException("fichier non existant");
 		}
 		return content.toString();
 	}
