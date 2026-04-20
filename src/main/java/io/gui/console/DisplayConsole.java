@@ -1,5 +1,7 @@
 package io.gui.console;
 
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Map;
 
 public class DisplayConsole extends Console {
@@ -45,4 +47,18 @@ public class DisplayConsole extends Console {
 	public int exitKey() {
 		return Integer.parseInt(EXIT_KEY);
 	}
+	
+	public String showContentFile(String nameFile) {
+		StringBuilder content = new StringBuilder();
+		try (FileReader reader = new FileReader(nameFile)){
+			int character;
+			while ((character = reader.read()) != -1) {
+					content.append((char) character);
+				}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return content.toString();
+	}
+	
 }

@@ -53,10 +53,10 @@ public class ChocolateApplication {
 				console.message(EMOJI_CHOCOLATE_BAR + " Healthy chocolate !" + EMOJI_OK_HAND+EMOJI_THUMBS_UP);
 				break;
 			case 2:
-				console.message(EMOJI_CHOCOLATE_BAR+ " The best chocolate for easter !" + EMOJI_SMILING_FACE);
+				console.message(display.showContentFile("src/main/resources/easter.txt"));
+				console.message(EMOJI_CHOCOLATE_BAR + " My favourite chocolate !" + EMOJI_SMILING_FACE);
 				break;
 			case 3:
-				// TODO feature: display the content of the file easter.txt in src/main/resources
 				console.message(EMOJI_CHOCOLATE_BAR +" Sugar and fat : unhealthy !"+ EMOJI_THUMBS_DOWN+EMOJI_GRINNING_FACE);
 				break;
 			default:

@@ -3,8 +3,6 @@ package io.gui.console;
 public class ReadConsole extends Console {
 	
 	public int ensureInteger() {
-		//TODO bugfix: only an integer catch the exception
-		//A specific exception must be handled here when something else written
 		boolean notAnInteger = true;
 		Integer input = -1;
 		while (notAnInteger){
