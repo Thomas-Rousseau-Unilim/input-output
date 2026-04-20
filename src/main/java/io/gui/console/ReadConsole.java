@@ -5,7 +5,17 @@ public class ReadConsole extends Console {
 	public int ensureInteger() {
 		//TODO bugfix: only an integer catch the exception
 		//A specific exception must be handled here when something else written
-				return Integer.parseInt(keyboard.nextLine());
+		boolean notAnInteger = true;
+		Integer input = -1;
+		while (notAnInteger){
+			try {
+				input = Integer.parseInt(keyboard.nextLine());
+				notAnInteger = false;
+			} catch (NumberFormatException e){
+				this.message("It must be an integer");
+			}
+		}
+		return input;
 	}
 	
 	public int ensureIntegerBetween(int minimum, int maximum) {
